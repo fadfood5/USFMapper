@@ -1,0 +1,16 @@
+<div class="container-xl">
+    <div class="section">
+        <div class="row">
+            <div class="col-lg-4 offset-lg-4 text-center">
+                <form [formGroup]="buildingsGroup" (ngSubmit)="findBuilding()">
+                    <label for="buildingsGroupLabel"><h2>Find your Class</h2></label>
+                    <select (ngModelChange)="changedSelection($event)"  [(ngModel)]="selectedBuilding" formControlName="buildingsSelect" class="form-control form-select">
+                        <option></option>
+                        <option *ngFor="let build of buildingsList" ngValue="{{build.link}}">{{build.name}}</option>
+                    </select>
+                    <button class="btn btn-success" type="submit" [disabled]="!buildingsGroup.valid">Route</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
